@@ -34,3 +34,48 @@ mysql> show databases;
 | world               |
 +---------------------+
 8 rows in set (0.00 sec)
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------------
+
+mysql> use addressbook_service;
+Database changed
+
+mysql>  CREATE TABLE Address_book (
+    ->     first_name VARCHAR(255) NOT NULL,
+    ->     last_name VARCHAR(255)NOT NULL,
+    ->     address VARCHAR(255) NOT NULL,
+    ->     city VARCHAR(255) NOT NULL,
+    ->     state VARCHAR(255) NOT NULL,
+    ->     zip INT NOT NULL,
+    ->     phone_no LONG NOT NULL,
+    ->     email_id VARCHAR(255));
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> show tables;
++-------------------------------+
+| Tables_in_addressbook_service |
++-------------------------------+
+| address_book                  |
++-------------------------------+
+1 row in set (0.00 sec)
+
+mysql> DESCRIBE address_book;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| first_name | varchar(255) | NO   |     | NULL    |       |
+| last_name  | varchar(255) | NO   |     | NULL    |       |
+| address    | varchar(255) | NO   |     | NULL    |       |
+| city       | varchar(255) | NO   |     | NULL    |       |
+| state      | varchar(255) | NO   |     | NULL    |       |
+| zip        | int          | NO   |     | NULL    |       |
+| phone_no   | mediumtext   | NO   |     | NULL    |       |
+| email_id   | varchar(255) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
