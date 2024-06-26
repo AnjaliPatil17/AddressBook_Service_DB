@@ -217,3 +217,22 @@ mysql> SELECT * FROM address_book WHERE city = "Mumbai";
 | Sanvi      | Jadhav    | Ghansoli | Mumbai | MH    | 400407 | 9987651021 | sanvi143@gmail.com  |
 +------------+-----------+----------+--------+-------+--------+------------+---------------------+
 2 rows in set (0.00 sec)
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------
+                            UC7 - Ability to understand the size of address book by City and State
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+mysql> SELECT city,state, COUNT(*) AS Address_Count FROM address_book GROUP BY city,state;
++-------------+-------+---------------+
+| city        | state | Address_Count |
++-------------+-------+---------------+
+| Navi Mumbai | MH    |             2 |
+| Mumbai      | MH    |             2 |
++-------------+-------+---------------+
+2 rows in set (0.03 sec)
