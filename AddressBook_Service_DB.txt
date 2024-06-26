@@ -119,3 +119,37 @@ mysql> select * from address_book;
 | Tushar     | Jadhav    | Ghatkoper | Navi Mumbai | MH    |  440057 | 9167055282 | tushar11@gmail.com    |
 +------------+-----------+-----------+-------------+-------+---------+------------+-----------------------+
 5 rows in set (0.00 sec)
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------
+                          UC4 - Ability to edit existing contact person using their name
+----------------------------------------------------------------------------------------------------------------------
+
+
+
+mysql> UPDATE address_book SET address = "Thane" WHERE first_name = "Anjali";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE address_book SET address = "Ghansoli" WHERE first_name = "Sanvi";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE address_book SET zip = 400177 WHERE first_name = "Swapnil";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from address_book;
++------------+-----------+-----------+-------------+-------+--------+------------+-----------------------+
+| first_name | last_name | address   | city        | state | zip    | phone_no   | email_id              |
++------------+-----------+-----------+-------------+-------+--------+------------+-----------------------+
+| Anjali     | Patil     | Thane     | Navi Mumbai | MH    | 500577 | 9167754321 | anjalipatil@gmail.com |
+| Sakshi     | Jadhav    | Badlapur  |  Mumbai     | MH    | 406777 | 9981754321 | sakshi123@gmail.com   |
+| Sanvi      | Jadhav    | Ghansoli  | Mumbai      | MH    | 400407 | 9987651021 | sanvi143@gmail.com    |
+| Swapnil    | yadav     | Nerul     | Navi Mumbai | MH    | 400177 | 9176789345 | yadavswap@gmail.com   |
+| Tushar     | Jadhav    | Ghatkoper | Navi Mumbai | MH    | 440057 | 9167055282 | tushar11@gmail.com    |
++------------+-----------+-----------+-------------+-------+--------+------------+-----------------------+
+5 rows in set (0.00 sec)
