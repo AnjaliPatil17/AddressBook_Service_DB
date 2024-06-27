@@ -476,3 +476,73 @@ mysql> SELECT * FROM address_book;
 
 
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------- 
+                   UC13 - Ensure all retrieve queries done especially in UC 6, UC 7, UC 8 and UC 10 are working with new table structure
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+mysql> SELECT type,COUNT(type) FROM address_book GROUP BY type;
++------------+-------------+
+| type       | COUNT(type) |
++------------+-------------+
+| Family     |           6 |
+| Friends    |           3 |
+| Profession |           2 |
++------------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM address_book WHERE city = "Navi Mumbai" ORDER BY first_name;
++----+------------+-----------+----------+-------------+-------+--------+------------+------------------------+------------+
+| id | first_name | last_name | address  | city        | state | zip    | phone_no   | email_id               | type       |
++----+------------+-----------+----------+-------------+-------+--------+------------+------------------------+------------+
+|  1 | Anjali     | Patil     | Thane    | Navi Mumbai | MH    | 500577 | 9167754321 | anjalipatil@gmail.com  | Family     |
+|  8 | Pratik     | Sawant    | Vashi    | Navi Mumbai | MH    | 500245 | 9002565953 | pratiksawant@gmail.com | Profession |
+| 10 | Raj        | Patil     | Vashi    | Navi Mumbai | MH    | 400701 | 9167328904 | raj143@gmail.com       | Family     |
+| 11 | Raj        | Patil     | Vashi    | Navi Mumbai | MH    | 400701 | 9167328904 | raj143@gmail.com       | Friends    |
+|  9 | Smithal    | Patil     | Ghansoli | Navi Mumbai | MH    | 400225 | 9123400256 | smithal123@gmail.com   | Friends    |
+|  4 | Swapnil    | yadav     | Nerul    | Navi Mumbai | MH    | 400177 | 9176789345 | yadavswap@gmail.com    | Friends    |
++----+------------+-----------+----------+-------------+-------+--------+------------+------------------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM address_book WHERE city = "Mumbai" ORDER BY first_name;
++----+------------+------------+-----------+--------+-------+--------+------------+----------------------------+------------+
+| id | first_name | last_name  | address   | city   | state | zip    | phone_no   | email_id                   | type       |
++----+------------+------------+-----------+--------+-------+--------+------------+----------------------------+------------+
+|  2 | Sakshi     | Jadhav     | Badlapur  | Mumbai | MH    | 406777 | 9981754321 | sakshi123@gmail.com        | Family     |
+|  6 | Sanket     | Kalambaste | Dadar     | Mumbai | MH    | 400456 | 9123588432 | sanketkalambaste@gmail.com | Family     |
+|  3 | Sanvi      | Jadhav     | Ghansoli  | Mumbai | MH    | 400407 | 9987651021 | sanvi143@gmail.com         | Family     |
+|  7 | Sushmita   | Pawar      | Kurla     | Mumbai | MH    | 400042 | 8108659123 | sushmitapawar@gmail.com    | Profession |
+|  5 | Tushar     | Jadhav     | Ghatkoper | Mumbai | MH    | 500789 | 9194245632 | tushar@gmail.com           | Family     |
++----+------------+------------+-----------+--------+-------+--------+------------+----------------------------+------------+
+5 rows in set (0.00 sec)
+
+mysql>  SELECT city,state,type, COUNT(*) AS Address_Count FROM address_book GROUP BY city,state,type;
++-------------+-------+------------+---------------+
+| city        | state | type       | Address_Count |
++-------------+-------+------------+---------------+
+| Navi Mumbai | MH    | Family     |             2 |
+| Mumbai      | MH    | Family     |             4 |
+| Navi Mumbai | MH    | Friends    |             3 |
+| Mumbai      | MH    | Profession |             1 |
+| Navi Mumbai | MH    | Profession |             1 |
++-------------+-------+------------+---------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM address_book WHERE state = "MH";
++----+------------+------------+-----------+-------------+-------+--------+------------+----------------------------+------------+
+| id | first_name | last_name  | address   | city        | state | zip    | phone_no   | email_id                   | type       |
++----+------------+------------+-----------+-------------+-------+--------+------------+----------------------------+------------+
+|  1 | Anjali     | Patil      | Thane     | Navi Mumbai | MH    | 500577 | 9167754321 | anjalipatil@gmail.com      | Family     |
+|  2 | Sakshi     | Jadhav     | Badlapur  | Mumbai      | MH    | 406777 | 9981754321 | sakshi123@gmail.com        | Family     |
+|  3 | Sanvi      | Jadhav     | Ghansoli  | Mumbai      | MH    | 400407 | 9987651021 | sanvi143@gmail.com         | Family     |
+|  4 | Swapnil    | yadav      | Nerul     | Navi Mumbai | MH    | 400177 | 9176789345 | yadavswap@gmail.com        | Friends    |
+|  5 | Tushar     | Jadhav     | Ghatkoper | Mumbai      | MH    | 500789 | 9194245632 | tushar@gmail.com           | Family     |
+|  6 | Sanket     | Kalambaste | Dadar     | Mumbai      | MH    | 400456 | 9123588432 | sanketkalambaste@gmail.com | Family     |
+|  7 | Sushmita   | Pawar      | Kurla     | Mumbai      | MH    | 400042 | 8108659123 | sushmitapawar@gmail.com    | Profession |
+|  8 | Pratik     | Sawant     | Vashi     | Navi Mumbai | MH    | 500245 | 9002565953 | pratiksawant@gmail.com     | Profession |
+|  9 | Smithal    | Patil      | Ghansoli  | Navi Mumbai | MH    | 400225 | 9123400256 | smithal123@gmail.com       | Friends    |
+| 10 | Raj        | Patil      | Vashi     | Navi Mumbai | MH    | 400701 | 9167328904 | raj143@gmail.com           | Family     |
+| 11 | Raj        | Patil      | Vashi     | Navi Mumbai | MH    | 400701 | 9167328904 | raj143@gmail.com           | Friends    |
++----+------------+------------+-----------+-------------+-------+--------+------------+----------------------------+------------+
+11 rows in set (0.00 sec)
