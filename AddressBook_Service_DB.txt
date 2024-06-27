@@ -326,10 +326,6 @@ mysql> ALTER TABLE address_book
 Query OK, 11 rows affected (0.19 sec)
 Records: 11  Duplicates: 0  Warnings: 0
 
-mysql> ALTER TABLE address_book ADD type VARCHAR(255) AFTER last_name;
-Query OK, 0 rows affected (0.05 sec)
-Records: 0  Duplicates: 0  Warnings: 0
-
 mysql> UPDATE address_book SET type = "Profession" WHERE first_name = "Pratik";
 Query OK, 1 row affected (0.03 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
@@ -381,33 +377,3 @@ mysql> select * from address_book;
 | Smithal    | Patil      | Ghansoli  | Navi Mumbai | MH    | 400225 | 9123400256 | smithal123@gmail.com       | Friends    |
 +------------+------------+-----------+-------------+-------+--------+------------+----------------------------+------------+
 11 rows in set (0.00 sec)
-
-
-
-
-
-
-----------------------------------------------------------------------------------------------------------------------------------------------
-                                     UC10 - Ability to get number of contact persons i.e. count by type
-----------------------------------------------------------------------------------------------------------------------------------------------
-
-
-mysql> SELECT COUNT(type) FROM address_book GROUP BY type;
-+-------------+
-| COUNT(type) |
-+-------------+
-|           5 |
-|           2 |
-|           2 |
-+-------------+
-3 rows in set (0.00 sec)
-
-mysql> SELECT type,COUNT(type) FROM address_book GROUP BY type;
-+------------+-------------+
-| type       | COUNT(type) |
-+------------+-------------+
-| Family     |           5 |
-| Friends    |           2 |
-| Profession |           2 |
-+------------+-------------+
-3 rows in set (0.00 sec)
